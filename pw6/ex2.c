@@ -119,6 +119,10 @@ char *find_in_cdpath(const char *dir_name)
 
     for (int i = 0; i < count; i++)
     {
+        if (dirs[i][0] == '\0')
+        {
+            continue;
+        }
         snprintf(full_path, sizeof(full_path), "%s/%s", dirs[i], dir_name);
         if (directory_exists(full_path))
         {
